@@ -4,6 +4,8 @@ import { Header } from "./header/header";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { HomePage } from "./pages/homePage/homePage";
 import { ProfilePage } from "./pages/profilePage/profilePage";
+import "./styles/main.scss";
+
 function App() {
   return (
     <div className="d-flex flex-column min-vh-100">

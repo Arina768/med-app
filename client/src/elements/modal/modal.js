@@ -1,10 +1,8 @@
-import useOnClickOutside from "@/helpers/useOnCLickOutside";
+import useOnClickOutside from "../../helpers/useOnClikcOutside";
 import React, { useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 
 import "./styles.scss";
-
-
 
 const Modal = ({ children, closeModal = () => {} }) => {
   const el = useMemo(() => document.createElement("div"), []);

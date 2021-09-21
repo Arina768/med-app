@@ -1,0 +1,260 @@
+@import "./mixins.scss";
+
+body {
+  font-family: "OpenSans-Regular", sans-serif;
+  margin: 0;
+  background-color: #ececec;
+}
+
+h2 {
+  font-size: 50px;
+  display: block;
+  background-color: white;
+}
+
+.test-block {
+  border: 4px dotted black;
+  /* stylelint-disable-next-line plugin/no-unsupported-browser-features*/
+  @include display-flex;
+  flex-direction: column;
+  @include align-items-center;
+}
+
+.test-block + .test-block {
+  margin-top: 20px;
+}
+
+.main {
+  @include display-flex;
+  flex-direction: column;
+  @include justify-content-space-between;
+  overflow: hidden;
+  max-width: 1320px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+input {
+  border: 1px solid #cac1c1;
+
+  &::-ms-input-placeholder {
+    color: black;
+  }
+  &::placeholder {
+    color: black;
+    opacity: 0.6;
+  }
+
+  &:-ms-input-placeholder {
+    color: black;
+  }
+
+  &:focus {
+    outline: 2px solid #bbb4b4;
+  }
+}
+
+.loader {
+  border-radius: 50%;
+  -webkit-animation: load 1.4s infinite linear;
+  animation: load 1.4s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #070000;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+}
+.loader:after {
+  background: white;
+  width: 95%;
+  height: 75%;
+  border-radius: 50%;
+  content: "";
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.input-box .loader {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+}
+
+button {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  &.basic {
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: 1px solid #5a8aeb;
+    color: #5a8aeb;
+    width: 100%;
+    min-width: 80px;
+    font-size: 16px;
+
+    &.red {
+      border: 1px solid #db3333;
+      color: #db3333;
+    }
+
+    &.green {
+      color: #08ac08;
+      border: 1px solid #08ac08;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+    &:focus {
+      outline: none;
+      border: 2px solid;
+    }
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  }
+}
+
+.form-wrapper {
+  width: 100%;
+  @include display-flex;
+  @include justify-content-space-between;
+  flex-direction: column;
+  @include align-items-center;
+  background-color: white;
+  outline: 2px solid #d0d0d0;
+
+  h4 {
+    font-size: 32px;
+    margin: 20px;
+  }
+
+  .close {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    opacity: 0.7;
+
+    &:hover,
+    &:focus {
+      opacity: 0.9;
+    }
+    &:focus {
+      outline: 3px solid #bbb4b4;
+    }
+  }
+
+  span {
+    height: 40px;
+    &.error {
+      color: red;
+    }
+    &.success {
+      color: green;
+    }
+  }
+
+  form {
+    width: 100%;
+    height: 80%;
+    @include display-flex;
+    flex-direction: column;
+    @include justify-content-center;
+    @include align-items-center;
+
+    button {
+      width: 50%;
+      height: 40px;
+      border-radius: 5px;
+      margin: 24px;
+      border: 1px solid rgb(101, 101, 156);
+      color: rgb(101, 101, 156);
+
+      &:disabled {
+        pointer-events: none;
+        opacity: 0.6;
+      }
+
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+        border: 2px solid;
+      }
+    }
+  }
+  .form-group {
+    @include display-flex;
+    flex-direction: column;
+    @include justify-content-center;
+    height: 70%;
+    width: 100%;
+    @include align-items-center;
+    border-top: 2px solid #d0d0d0;
+    border-bottom: 2px solid #d0d0d0;
+
+    padding-top: 30px;
+  }
+}
+
+@media (min-width: 576px) {
+  .form-wrapper {
+    width: 600px;
+  }
+}

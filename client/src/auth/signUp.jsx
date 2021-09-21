@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 // import { userRegistration } from "@/store/actions";
 
-import InputText from "@/elements/inputText/inputText";
-import Modal from "@/elements/modal/modal";
+import InputText from "../elements/inputText/inputTest";
+import Modal from "../elements/modal/modal";
 
 // import { PROFILE_PAGE_LINK } from "../../../router/routes";
 

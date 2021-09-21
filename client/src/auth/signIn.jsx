@@ -1,11 +1,9 @@
 import React, { useState, MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 
-import InputText from "@/elements/inputText";
-import Modal from "@/elements/modal";
+import InputText from "../elements/inputText/inputTest";
+import Modal from "../elements/modal/modal";
 // import { userLogin } from "@/store/actions";
-
-
 
 const SignIn = ({ closeModal }) => {
   const [userName, setUserName] = useState("");
@@ -30,7 +28,9 @@ const SignIn = ({ closeModal }) => {
         <button type="button" className="close" onClick={closeModal}>
           <span>x</span>
         </button>
-        <div className="error-message">{errorMessage && <span>{errorMessage}</span>}</div>
+        <div className="error-message">
+          {errorMessage && <span>{errorMessage}</span>}
+        </div>
         <form>
           <div className="form-group">
             <InputText
@@ -46,7 +46,11 @@ const SignIn = ({ closeModal }) => {
               // icon={passwordIcon}
             />
           </div>
-          <button type="submit" onClick={handleFormSubmit} disabled={!userName || !userPassword}>
+          <button
+            type="submit"
+            onClick={handleFormSubmit}
+            disabled={!userName || !userPassword}
+          >
             Enter
           </button>
         </form>

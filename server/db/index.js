@@ -10,9 +10,12 @@ export const connectDB = async () => {
     type: "postgres",
     host: process.env.PG_CONN_HOST,
     port: Number(process.env.PG_CONN_PORT),
-    username: process.env.PG_CONN_USERNAME,
-    password: process.env.PG_CONN_PASSWORD,
-    database: "postgres",
+    username: process.env.PG_CONN_USERNAME.toString(),
+    password: process.env.PG_CONN_PASSWORD.toString(),
+    database: process.env.PG_DB.toString(),
+    ssl: {
+      rejectUnauthorized: false,
+    },
   });
 
   console.log("Postgres has been connected");

@@ -20,7 +20,7 @@
     "express-ws": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
     "node-dev": "^7.0.0",
-    "pg": "^8.6.0",
+    "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "sha256": "^0.2.0",
     "typeorm": "^0.2.37",

@@ -1,7 +1,7 @@
-@import "@/styles/mixins.scss";
+// @import "@/styles/mixins.scss";
 
 .input-container {
-  @include display-flex;
+  display: flex;
   justify-content: center;
   width: 100%;
   height: 34px;
@@ -20,9 +20,9 @@
   }
   label {
     width: 50%;
-    @include display-flex;
+    display: flex;
     justify-content: flex-end;
-    @include align-items-center;
+    align-items: center;
     white-space: nowrap;
 
     &.select {
@@ -43,8 +43,9 @@
 .error-message {
   width: 75%;
   height: 34px;
-  @include display-flex;
-  @include justify-content-center;
+  display: flex;
+
+  justify-content: space-between;
   margin: 10px 0;
   font-size: 16px;
   color: red;

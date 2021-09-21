@@ -6,11 +6,11 @@ import SignIn from "../auth/signIn";
 import SignUp from "../auth/signUp";
 
 export const Header = () => {
-  const [signInModal, setSignInModal] = useState<boolean>(false);
-  const [signUpModal, setSignUpModal] = useState<boolean>(false);
+  const [signInModal, setSignInModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
   const userName = useSelector((appState) => appState.userName);
   // const id = useSelector((appState) => appState.id);
-  const id = 'test'
+  const id = "";
   return (
     // <header className="d-flex justify-content-center">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -68,17 +68,15 @@ export const Header = () => {
           </form>
           {/* </div> */}
           {id ? (
-                      <div className="col-3">
+            <div className="col-3">
+              <NavLink to="/profile">
+                <p>{userName || "user"}</p>
+              </NavLink>
 
-            <NavLink to="/profile">
-              <p>{userName || "user"}</p>
-            </NavLink>
-            
-
-            <p>logout</p>
+              <p>logout</p>
             </div>
-            ) : (
-              <div className="col-3">
+          ) : (
+            <div className="col-3">
               <button type="button" onClick={() => setSignInModal(true)}>
                 Sign in
               </button>
@@ -88,7 +86,8 @@ export const Header = () => {
             </div>
           )}
         </div>
-      </div>   <>
+      </div>{" "}
+      <>
         {signInModal && <SignIn closeModal={() => setSignInModal(false)} />}
         {signUpModal && <SignUp closeModal={() => setSignUpModal(false)} />}
       </>
