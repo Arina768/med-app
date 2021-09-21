@@ -1,0 +1,51 @@
+@import "@/styles/mixins.scss";
+
+.input-container {
+  @include display-flex;
+  justify-content: center;
+  width: 100%;
+  height: 34px;
+
+  input {
+    margin-left: 10px;
+    height: 100%;
+    width: 100%;
+
+    &.error {
+      border: 1px solid red;
+    }
+  }
+  img {
+    margin-right: 10px;
+  }
+  label {
+    width: 50%;
+    @include display-flex;
+    justify-content: flex-end;
+    @include align-items-center;
+    white-space: nowrap;
+
+    &.select {
+      margin-right: 20px;
+      margin-bottom: 40px;
+      width: 60%;
+    }
+  }
+  select {
+    width: 80%;
+    margin-left: 20px;
+    border: 1px solid #cac1c1;
+    color: #5b5b5b;
+    height: 40px;
+  }
+}
+
+.error-message {
+  width: 75%;
+  height: 34px;
+  @include display-flex;
+  @include justify-content-center;
+  margin: 10px 0;
+  font-size: 16px;
+  color: red;
+}

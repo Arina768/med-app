@@ -1,9 +1,16 @@
 import { Dropdown } from "bootstrap";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import SignIn from "../auth/signIn";
+import SignUp from "../auth/signUp";
 
 export const Header = () => {
+  const [signInModal, setSignInModal] = useState<boolean>(false);
+  const [signUpModal, setSignUpModal] = useState<boolean>(false);
   const userName = useSelector((appState) => appState.userName);
+  // const id = useSelector((appState) => appState.id);
+  const id = 'test'
   return (
     // <header className="d-flex justify-content-center">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -60,14 +67,31 @@ export const Header = () => {
             </button>
           </form>
           {/* </div> */}
-          <div className="col-3">
+          {id ? (
+                      <div className="col-3">
+
             <NavLink to="/profile">
               <p>{userName || "user"}</p>
             </NavLink>
+            
+
             <p>logout</p>
-          </div>
+            </div>
+            ) : (
+              <div className="col-3">
+              <button type="button" onClick={() => setSignInModal(true)}>
+                Sign in
+              </button>
+              <button type="button" onClick={() => setSignUpModal(true)}>
+                Registration
+              </button>
+            </div>
+          )}
         </div>
-      </div>
+      </div>   <>
+        {signInModal && <SignIn closeModal={() => setSignInModal(false)} />}
+        {signUpModal && <SignUp closeModal={() => setSignUpModal(false)} />}
+      </>
     </nav>
 
     //  <div className="row justify-content-between">

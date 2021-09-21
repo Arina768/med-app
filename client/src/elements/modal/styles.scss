@@ -1,0 +1,15 @@
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .modal-container {
+    position: fixed;
+    width: auto;
+  }
+}
