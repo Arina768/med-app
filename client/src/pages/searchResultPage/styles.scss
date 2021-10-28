@@ -1,0 +1,15 @@
+.search-result-page {
+  .btn {
+    font-size: 20px;
+    color: #0091b4;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: #2aa6c4;
+      border-color: #2aa6c4;
+      box-shadow: 0 0 0 0.25rem #2aa6c47d;
+      color: #ffffff;
+    }
+  }
+}

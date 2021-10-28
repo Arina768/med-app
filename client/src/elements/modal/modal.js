@@ -10,6 +10,7 @@ const Modal = ({ children, closeModal = () => {} }) => {
   useEffect(() => {
     const target = document.body;
     el.classList.add("modal-container");
+
     target.appendChild(el);
     return () => {
       target.removeChild(el);

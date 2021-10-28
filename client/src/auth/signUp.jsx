@@ -1,18 +1,17 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-// import { userRegistration } from "@/store/actions";
 
-import InputText from "../elements/inputText/inputTest";
+import InputText from "../elements/inputText/inputText";
 import Modal from "../elements/modal/modal";
+import { userRegistration } from "../store/actions/userActions";
 
-// import { PROFILE_PAGE_LINK } from "../../../router/routes";
+import { REGISTRATION_FORM_PAGE_LINK } from "../router/routes";
 
 const SignUp = ({ closeModal }) => {
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [role, setRole] = useState("");
 
   const [userPassword, setUserPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -32,85 +31,77 @@ const SignUp = ({ closeModal }) => {
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // if (passwordsMatch) {
-    //   const isLoginSuccessful = ((await dispatch(
-    //     userRegistration(userName, userPassword, firstName, lastName, role)
-    //   )) as unknown) as boolean;
-    //   if (isLoginSuccessful) {
-    //     closeModal();
-    //     history.push(PROFILE_PAGE_LINK);
-    //   } else {
-    //     setErrorMessage("Username already exists");
-    //   }
-    // }
+    if (passwordsMatch) {
+      const isLoginSuccessful = await dispatch(
+        userRegistration(userName, userPassword, firstName, lastName)
+      );
+      if (isLoginSuccessful) {
+        closeModal();
+        history.push(REGISTRATION_FORM_PAGE_LINK);
+      } else {
+        setErrorMessage("Username already exists");
+      }
+    }
   };
 
   return (
     <Modal closeModal={closeModal}>
-      <div className="form-wrapper">
-        <h4>Registration</h4>
-        <div className="error-message">
-          {errorMessage && <span>{errorMessage}</span>}
-        </div>
-        <button type="button" className="close" onClick={closeModal}>
-          <span>x</span>
-        </button>
-        <form>
-          <div className="form-group">
-            <InputText
-              placeholderText="Login"
-              inputPayload={(value) => setUserName(value)}
-              id="login"
-              // icon={userIcon}
-            />
-            <InputText
-              placeholderText="First Name"
-              inputPayload={(value) => setFirstName(value)}
-              id="login"
-              // icon={userIcon}
-            />
-            <InputText
-              placeholderText="Last Name"
-              inputPayload={(value) => setLastName(value)}
-              id="login"
-              // icon={userIcon}
-            />
-            <div className="input-container">
-              <label htmlFor="role-select" className="select">
-                Role
-                <select
-                  id="role-select"
-                  onChange={(e) => setRole(e.currentTarget.value)}
-                >
-                  <option value={"buyer"}>Buyer</option>
-                  <option value={"admin"}>Admin</option>
-                </select>
-              </label>
-            </div>
-            <InputText
-              placeholderText="Password"
-              inputPayload={(value) => setUserPassword(value)}
-              id="password"
-              // icon={passwordIcon}
-              inputType="password"
-            />
-            <InputText
-              placeholderText="Confirm Password"
-              inputPayload={(value) => checkCorrectPassword(value)}
-              id="password2"
-              // icon={passwordIcon}
-              inputType="password"
-            />
+      <>
+        <h4 className="modal__title">Registration</h4>
+        <div className="form-wrapper modal__content">
+          <div className="error-message">
+            {errorMessage && <span>{errorMessage}</span>}
           </div>
-          <button
-            type="submit"
-            onClick={handleFormSubmit}
-            disabled={!userName || !userPassword || !passwordsMatch}
-          >
-            Registration
+          <button type="button" className="close" onClick={closeModal}>
+            <span>x</span>
           </button>
-        </form>
-      </div>
+          <form>
+            <div className="form-group">
+              <InputText
+                placeholderText="Login"
+                inputPayload={(value) => setUserName(value)}
+                id="login"
+                noAutoComplete
+              />
+              <InputText
+                placeholderText="First Name"
+                inputPayload={(value) => setFirstName(value)}
+                id="name"
+                noAutoComplete
+              />
+              <InputText
+                placeholderText="Last Name"
+                inputPayload={(value) => setLastName(value)}
+                id="lastName"
+                noAutoComplete
+              />
+
+              <InputText
+                placeholderText="Password"
+                inputPayload={(value) => setUserPassword(value)}
+                id="password"
+                noAutoComplete
+                inputType="password"
+              />
+              <InputText
+                placeholderText="Confirm Password"
+                inputPayload={(value) => checkCorrectPassword(value)}
+                id="password2"
+                noAutoComplete
+                inputType="password"
+              />
+            </div>
+            <button
+              type="submit"
+              onClick={handleFormSubmit}
+              disabled={!userName || !userPassword || !passwordsMatch}
+              className="modal__btn"
+            >
+              Registration
+            </button>
+          </form>
+        </div>
+      </>
     </Modal>
   );
 };

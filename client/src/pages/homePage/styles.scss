@@ -1,0 +1,63 @@
+.existing-modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  .existing-modal {
+    width: 600px;
+  }
+}
+
+.landing {
+  background-color: #ffffffa6;
+  color: #2d7b8e;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 80px;
+  left: 10px;
+  right: 10px;
+  text-align: center;
+  padding: 14px;
+  border-radius: 10px;
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  h3 {
+    font-size: 18px;
+  }
+
+  @media (min-width: 500px) {
+    left: 30px;
+    right: 30px;
+    h2 {
+      font-size: calc(1.325rem + 0.9vw);
+    }
+    h3 {
+      font-size: calc(1.3rem + 0.6vw);
+    }
+  }
+  @media (min-width: 768px) {
+    padding: 30px;
+    top: 150px;
+    right: 150px;
+    left: auto;
+
+    h2 {
+      font-size: calc(1.325rem + 0.9vw);
+    }
+    h3 {
+      font-size: calc(1.3rem + 0.6vw);
+    }
+  }
+}
+.landing-wrapper {
+  height: calc(100vh - 100px);
+  background: url("./landing.jpg");
+  background-size: cover;
+  position: relative;
+}

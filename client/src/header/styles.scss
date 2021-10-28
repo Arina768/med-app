@@ -1,0 +1,67 @@
+.header__wrapper {
+  background-color: #0091b4;
+  color: #f5f9fa;
+
+  .btn,
+  .btn-primary {
+    background-color: #0091b4;
+    border-color: #0091b4;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    &.active:focus {
+      background-color: #2aa6c4;
+      border-color: #2aa6c4;
+      box-shadow: 0 0 0 0.25rem #2aa6c47d;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+  .btn-logout:hover,
+  .btn-logout:focus {
+    background-color: #175969;
+    border-color: #175969;
+    box-shadow: 0 0 0 0.25rem #17596973;
+  }
+
+  img {
+    width: 50px;
+    height: auto;
+  }
+  .react-search-box-dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 100%;
+    color: #000000;
+  }
+  .loader {
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    font-size: 6px;
+    border-left: 0.5em solid #f5f9fa;
+  }
+
+  .app-title {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 0.25rem;
+    color: #0091b4;
+    background-color: #ffffff;
+    text-transform: uppercase;
+    font-size: 18px;
+
+    @media (min-width: 400px) {
+      font-size: 20px;
+    }
+    @media (min-width: 500px) {
+      font-size: calc(1.325rem + 0.9vw);
+    }
+  }
+}
