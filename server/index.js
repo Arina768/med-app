@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser";
 import "reflect-metadata";
 import { connectDB } from "./db/index.js";
 import cors from "cors";
-import checkAdminMiddleware from "./middlewares/checkAdminRole";
+import checkAdminMiddleware from "../middlewares/checkAdminRole";
 
 import dotenv from "dotenv";
 import errorMiddleware from "./middlewares/errorHandler";
