@@ -8,8 +8,8 @@ import cors from "cors";
 import checkAdminMiddleware from "./middlewares/checkAdminRole.js";
 
 import dotenv from "dotenv";
-import errorMiddleware from "./middlewares/errorHandler";
-import authMiddleware from "./middlewares/checkToken";
+import errorMiddleware from "./middlewares/errorHandler.js";
+import authMiddleware from "./middlewares/checkToken.js";
 
 import { authRoute } from "./controllers/auth.js";
 import { servicesRoute } from "./controllers/medServices.js";
