@@ -35,7 +35,7 @@ const SignIn = ({ closeModal }) => {
           <form>
             <div className="form-group">
               <InputText
-                placeholderText="Login"
+                placeholderText="Email"
                 inputPayload={(value) => setUserName(value)}
                 id="login"
                 withoutCheck
