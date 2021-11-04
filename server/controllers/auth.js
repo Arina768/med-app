@@ -1,7 +1,7 @@
 import express from "express";
 
 import { body } from "express-validator";
-import { loginUser, refreshToken, registerUser } from "../services/auth";
+import { loginUser, refreshToken, registerUser } from "../services/auth.js";
 
 const router = express.Router();
 

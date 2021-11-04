@@ -7,7 +7,7 @@ import {
   addBasicServices,
   addNewService,
   modifyAppointment,
-} from "../services/user";
+} from "../services/user.js";
 const router = express.Router();
 
 router.post("/service", addNewService);

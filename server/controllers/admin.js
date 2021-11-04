@@ -1,5 +1,5 @@
 import express from "express";
-import { deleteService, saveService } from "../services/medServices";
+import { deleteService, saveService } from "../services/medServices.js";
 
 const router = express.Router();
 
