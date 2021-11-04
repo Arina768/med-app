@@ -15,6 +15,7 @@ export default function (req, res, next) {
     const tokenKey = process.env.JWT_TOKEN_SECRET || "testing_key";
 
     const userData = validateToken(accessToken, tokenKey);
+    console.log("userData", accessToken, tokenKey, userData, req.cookies);
     if (!userData) {
       return next(ApiError.UnauthorizedError());
     }
