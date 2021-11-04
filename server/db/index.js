@@ -1,11 +1,11 @@
 import { createConnection } from "typeorm";
-import MedService from "./Postgre/models/MedService";
-import ServiceToUser from "./Postgre/models/ServiceToUser";
-import Token from "./Postgre/models/Token";
-import User from "./Postgre/models/User";
-import UserPostgreRepository from "./Postgre/repositories/User";
-import TokenPostgreRepository from "./Postgre/repositories/Token";
-import MedServicePostgreRepository from "./Postgre/repositories/MedService";
+import MedService from "./Postgre/models/MedService.js";
+import ServiceToUser from "./Postgre/models/ServiceToUser.js";
+import Token from "./Postgre/models/Token.js";
+import User from "./Postgre/models/User.js";
+import UserPostgreRepository from "./Postgre/repositories/User.js";
+import TokenPostgreRepository from "./Postgre/repositories/Token.js";
+import MedServicePostgreRepository from "./Postgre/repositories/MedService.js";
 
 export let MedServiceRepository;
 
