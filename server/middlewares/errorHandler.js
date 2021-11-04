@@ -1,5 +1,4 @@
-import * as express from "express";
-import ApiError from "../helpers/handleError";
+import ApiError from "../helpers/handleError.js";
 
 export default function (error, req, res, next) {
   console.log(error);

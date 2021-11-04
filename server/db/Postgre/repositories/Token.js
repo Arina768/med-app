@@ -1,6 +1,6 @@
 import { getRepository } from "typeorm";
 
-import Token from "../models/Token";
+import Token from "../models/Token.js";
 
 export default class TokenRepository {
   repository = getRepository(Token);

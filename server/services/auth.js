@@ -1,10 +1,10 @@
-import { UserRepository } from "../db/index";
+import { UserRepository } from "../db/index.js";
 import { validationResult } from "express-validator";
-import ApiError from "../helpers/handleError";
-import { TOKEN_MAX_AGE } from "../constants";
-import validateToken from "../helpers/validateToken";
-import { TokenRepository } from "../db/index";
-import generateToken from "../helpers/generateToken";
+import ApiError from "../helpers/handleError.js";
+import { TOKEN_MAX_AGE } from "../constants.js";
+import validateToken from "../helpers/validateToken.js";
+import { TokenRepository } from "../db/index.js";
+import generateToken from "../helpers/generateToken.js";
 
 export const registerUser = async (req, res, next) => {
   const errorsAfterValidation = validationResult(req);

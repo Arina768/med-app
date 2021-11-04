@@ -1,5 +1,5 @@
-import { UserRepository } from "../db/index";
-import ApiError from "../helpers/handleError";
+import { UserRepository } from "../db/index.js";
+import ApiError from "../helpers/handleError.js";
 
 export const findUser = async (req, res, next) => {
   try {

@@ -1,5 +1,5 @@
 import { getRepository, Like, Any } from "typeorm";
-import MedService from "../models/MedService";
+import MedService from "../models/MedService.js";
 
 export default class MedServiceRepository {
   repository = getRepository(MedService);

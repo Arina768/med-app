@@ -1,4 +1,4 @@
-import ApiError from "../helpers/handleError";
+import ApiError from "../helpers/handleError.js";
 
 export default function (req, res, next) {
   const userRole = req.body.user.role;

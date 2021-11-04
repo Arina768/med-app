@@ -1,5 +1,5 @@
-import { MedServiceRepository } from "../db/index";
-import ApiError from "../helpers/handleError";
+import { MedServiceRepository } from "../db/index.js";
+import ApiError from "../helpers/handleError.js";
 
 export const saveService = async (req, res, next) => {
   try {

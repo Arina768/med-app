@@ -1,11 +1,11 @@
 import { getRepository } from "typeorm";
-import User from "../models/User";
+import User from "../models/User.js";
 import sha256 from "sha256";
-import generateToken from "../../../helpers/generateToken";
-import TokenRepository from "./Token";
-import MedService from "../models/MedService";
-import ServiceToUser from "../models/ServiceToUser";
-import ApiError from "../../../helpers/handleError";
+import generateToken from "../../../helpers/generateToken.js";
+import TokenRepository from "./Token.js";
+import MedService from "../models/MedService.js";
+import ServiceToUser from "../models/ServiceToUser.js";
+import ApiError from "../../../helpers/handleError.js";
 
 export default class UserRepository {
   repository = getRepository(User);

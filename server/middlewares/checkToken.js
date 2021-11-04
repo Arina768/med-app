@@ -1,6 +1,5 @@
-import * as express from "express";
-import ApiError from "../helpers/handleError";
-import validateToken from "../helpers/validateToken";
+import ApiError from "../helpers/handleError.js";
+import validateToken from "../helpers/validateToken.js";
 
 export default function (req, res, next) {
   try {
