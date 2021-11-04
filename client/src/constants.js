@@ -8,7 +8,8 @@ export const CHANGE_EVENT_ACTION = "changeEvent";
 
 export const GET_SERVICES_ACTION = "getServices";
 
-const SERVER_PATH = "//localhost:5000";
+// const SERVER_PATH = "//localhost:5000";
+const SERVER_PATH = "https://med-calendar-server.herokuapp.com";
 
 export const SIGNIN_PATH = `${SERVER_PATH}/auth/login`;
 
