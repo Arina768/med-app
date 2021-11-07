@@ -1,6 +1,6 @@
 import express from "express";
 import * as http from "http";
-import sessions from "express-session";
+import session from "express-session";
 
 import cookieParser from "cookie-parser";
 import "reflect-metadata";
