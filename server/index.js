@@ -1,5 +1,6 @@
 import express from "express";
 import * as http from "http";
+import sessions from "express-session";
 
 import cookieParser from "cookie-parser";
 import "reflect-metadata";
@@ -21,13 +22,15 @@ const port = process.env.PORT || 5000;
 const server = http.createServer(app);
 app.enable("trust proxy");
 app.use(
-  express.session({
-    secret: "test_key",
-    key: "sid",
-    proxy: true,
+  session({
+    name: "random_session",
+    secret: "testkey",
+    resave: false,
+    saveUninitialized: true,
     cookie: {
+      path: "/",
       secure: true,
-      maxAge: 5184000000,
+      httpOnly: true,
     },
   })
 );
