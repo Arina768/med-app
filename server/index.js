@@ -19,7 +19,18 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 const server = http.createServer(app);
-app.set("trust proxy", 1);
+app.enable("trust proxy");
+app.use(
+  express.session({
+    secret: "test_key",
+    key: "sid",
+    proxy: true,
+    cookie: {
+      secure: true,
+      maxAge: 5184000000,
+    },
+  })
+);
 connectDB();
 app.use(
   cors({
