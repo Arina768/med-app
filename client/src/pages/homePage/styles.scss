@@ -23,11 +23,14 @@
   text-align: center;
   padding: 14px;
   border-radius: 10px;
+  text-align: start;
+
   h2 {
     font-size: 20px;
     font-weight: bold;
   }
   h3 {
+    border-bottom: 1px solid #91b400;
     font-size: 18px;
   }
 
@@ -38,7 +41,7 @@
       font-size: calc(1.325rem + 0.9vw);
     }
     h3 {
-      font-size: calc(1.3rem + 0.6vw);
+      font-size: calc(1.1rem + 0.6vw);
     }
   }
   @media (min-width: 768px) {
@@ -46,13 +49,6 @@
     top: 150px;
     right: 150px;
     left: auto;
-
-    h2 {
-      font-size: calc(1.325rem + 0.9vw);
-    }
-    h3 {
-      font-size: calc(1.3rem + 0.6vw);
-    }
   }
 }
 .landing-wrapper {
