@@ -20,20 +20,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 const server = http.createServer(app);
-app.enable("trust proxy");
-app.use(
-  session({
-    name: "random_session",
-    secret: "testkey",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      path: "/",
-      secure: true,
-      httpOnly: true,
-    },
-  })
-);
+
 connectDB();
 app.use(
   cors({

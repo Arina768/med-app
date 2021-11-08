@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node --experimental-modules index.js",
+    "start": "pm2 start index.js",
     "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
   },
   "author": "",
@@ -20,6 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "node-dev": "^7.0.0",
     "pg": "^8.7.1",
+    "pm2": "^5.1.2",
     "reflect-metadata": "^0.1.13",
     "sha256": "^0.2.0",
     "typeorm": "^0.2.37"
