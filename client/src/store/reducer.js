@@ -12,7 +12,7 @@ const appState = {
   id: "",
   firstName: "",
   role: "",
-  userEvents: [],
+  userEvents: null,
   allServices: [],
 };
 

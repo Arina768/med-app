@@ -23,6 +23,7 @@ const RegistrationFormPage = () => {
           setBasicService(response);
         }
       } catch (e) {
+        setErrorMsg(true);
         console.error(e);
       }
     };
@@ -65,7 +66,11 @@ const RegistrationFormPage = () => {
   return (
     <div className="container">
       <h1 className="mt-4">Registration Form</h1>
-      {errorMsg && <p>Something went wrong</p>}
+      {errorMsg && (
+        <div className="alert alert-danger" role="alert">
+          Something went wrong
+        </div>
+      )}
       <p>Please fill out the basic form</p>
       {!!basicService.length ? (
         basicService.map((service) => (
@@ -86,7 +91,7 @@ const RegistrationFormPage = () => {
       ) : (
         <div className="loader" />
       )}
-      <button type="button" className="btn btn-green mt-3" onClick={saveForm}>
+      <button type="button" className="btn btn-green my-3" onClick={saveForm}>
         Add to my calendar
       </button>
     </div>

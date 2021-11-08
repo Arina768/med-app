@@ -8,6 +8,8 @@ const SearchResultPage = (props) => {
   const [selectedService, setSelectedService] = useState({});
   const [servicesInfo, setServicesInfo] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
   const dispatch = useDispatch();
   useEffect(() => {
     async function searchRequest() {
@@ -19,6 +21,7 @@ const SearchResultPage = (props) => {
         const req = await fetch(
           `${SEARCH_PATH}?name=${searchParam.toLowerCase()}`
         );
+
         const response = await req.json();
         if (!response) {
           setServicesInfo([]);
@@ -27,6 +30,8 @@ const SearchResultPage = (props) => {
         setServicesInfo(response);
         setIsLoading(false);
       } catch (e) {
+        setIsError(true);
+        setIsLoading(false);
         console.error(e);
       }
     }
@@ -36,9 +41,13 @@ const SearchResultPage = (props) => {
   }, [dispatch, props.match.params]);
   return (
     <div className="container search-result-page">
-      {isLoading ? (
-        <div className="loader d-flex justify-content-center" />
-      ) : (
+      {isLoading && <div className="loader d-flex justify-content-center" />}
+      {isError && (
+        <div className="alert alert-danger mt-4" role="alert">
+          Something went wrong
+        </div>
+      )}
+      {!isLoading && !isError && (
         <div className="row justify-content-between flex-column mt-4">
           <h1>Search Results</h1>
           {!!servicesInfo.length ? (
@@ -54,7 +63,7 @@ const SearchResultPage = (props) => {
             ))
           ) : (
             <h3>
-              Unfortunately, no results found for{" "}
+              Unfortunately, no results found for
               {props.match.params.searchParam}
             </h3>
           )}
